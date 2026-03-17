@@ -128,6 +128,8 @@ Track upload status and response
                 ↓
         UI Rebuilds Automatically
 
+---
+
 ## 🧠 AI Integration Flow
 
 User enters a query in the Flutter interface
@@ -145,6 +147,8 @@ Response is returned to the frontend
 
 UI updates dynamically via Riverpod
 
+---
+
 ## 📂 File Upload Flow
 
 Teacher uploads study material via Flutter UI
@@ -155,6 +159,8 @@ FastAPI stores the file in /uploads directory
 
 Metadata is returned and managed in the app
 
+---
+
 ## 🔥 Key Features
 
       ✅ Fully Offline AI Chat
@@ -164,5 +170,28 @@ Metadata is returned and managed in the app
       ✅ Real-time UI updates using Riverpod
       
       ✅ Study material upload and management
+
+---
+
+## 🚧 Future Enhancements
+    
+    🔍 Semantic Search using FAISS
+    
+    🌐 Hybrid Mode (Offline + Cloud Sync)
+    
+    🗣️ Voice-enabled AI assistant
+    
+    📊 Student performance tracking
+    
+    📚 Personalized learning recommendations
       
-      ✅ Lightweight and scalable architecture
+    ✅ Lightweight and scalable architecture
+
+---
+
+## 📸 Demo
+
+#### 🎥 Demo Video:
+
+      https://drive.google.com/file/d/12IhiPGROt4bX-DlSIdd1l5WE2CpzSRHb/view?usp=sharing
+  
