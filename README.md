@@ -1,209 +1,168 @@
-Sikshya Setu – Offline AI-Powered Learning Platform
-📌 Overview
+# 🚀 Sikshya Setu – Offline AI-Powered Learning Platform
 
-  Sikshya Setu is an offline-first AI-powered education platform designed to bridge the digital divide in remote and low-connectivity regions. Unlike conventional ed-tech applications that rely heavily on cloud infrastructure, Sikshya Setu ensures uninterrupted learning by operating efficiently without continuous internet access.
+## 📌 Overview
 
-The platform acts as a 24/7 academic assistant, enabling students to:
+**Sikshya Setu** is an offline-first AI-powered education platform built to bridge the digital divide in remote and low-connectivity regions. Unlike traditional ed-tech systems that depend on continuous internet access, this platform enables uninterrupted learning by running AI models locally.
 
-  Ask doubts and receive AI-generated explanations
+It acts as a **24/7 intelligent academic assistant**, allowing students to:
+- Ask doubts and receive instant AI-generated explanations  
+- Access study materials without internet dependency  
+- Continue learning seamlessly in low or no connectivity environments  
 
-  Access learning materials offline
+---
 
-  Continue education in low or zero network environments
+## ❗ Problem Statement
 
-❗ Problem Statement
+Students in rural and underserved areas face critical challenges:
 
-  Students in rural and underserved areas often face:
+- Unstable or no internet connectivity  
+- Limited access to quality teachers  
+- Inability to use modern AI-powered learning tools  
 
-    Lack of stable internet connectivity
+Most existing solutions are **cloud-dependent**, making them unusable in such regions and widening the educational gap.
 
-    Limited access to quality teachers
+---
 
-    Inability to use modern AI learning platforms
+## 💡 Proposed Solution
 
-    Most existing solutions are cloud-dependent, making them unusable in such conditions, which widens the educational gap.
+Sikshya Setu addresses these challenges by:
 
-💡 Solution
+- Running a **lightweight offline AI model (Phi-3 via Ollama)** locally  
+- Providing **real-time doubt-solving without internet**  
+- Enabling **offline storage and access to learning resources**  
+- Offering a scalable, low-infrastructure solution for institutions  
 
-Sikshya Setu solves this by:
+---
 
-    Running an offline AI model (Phi-3 via Ollama) locally
+## 🏗️ Tech Stack
 
-    Providing instant doubt-solving without internet
+### 🎨 Frontend
+- Flutter  
+- Riverpod (State Management)
 
-    Enabling offline storage and retrieval of study materials
+### ⚙️ Backend
+- FastAPI  
+- Ollama (Phi-3 Mini)
 
-    Offering a scalable solution for schools with minimal infrastructure
+### 💾 Storage
+- Local File System  
+- (Optional) FAISS for semantic search  
 
-🏗️ Tech Stack
-Frontend
+---
 
-    Flutter (Cross-platform UI)
-    
-    Riverpod (State Management)
+## 📱 Flutter Architecture
 
-Backend
+### 🔹 Why Flutter?
 
-    FastAPI (Python backend)
-    
-    Ollama (Phi-3 Mini) (Local AI model)
+Flutter is chosen for:
 
-Storage
+- Single codebase for Web and Mobile  
+- Fast and responsive UI rendering  
+- Seamless integration with REST APIs  
+- Rapid development and prototyping  
 
-    Local file system for materials
-    
-    (Optional) Vector DB like FAISS for semantic retrieval
+---
 
-📱 Flutter Architecture
-🔹 Why Flutter?
+## 🔄 State Management using Riverpod
 
-  Flutter is used because:
+The application uses **Riverpod** for efficient and scalable state management.
+
+---
+
+### 📌 1. Chat Provider
+
+Handles chatbot interactions and message state.
+
+final chatProvider = StateNotifierProvider<ChatNotifier, List<Message>>((ref) {
+  return ChatNotifier();
+});
+
+### 📌 2. API Service Provider
+
+Handles backend communication.
+
+final apiServiceProvider = Provider<ApiService>((ref) {
+  return ApiService();
+});
+
+
+#### Responsibilities:
+
+  Send HTTP POST requests
   
-  Single codebase for Web + Mobile
+  Process JSON responses
   
-  Smooth UI performance
-  
-  Easy API integration with backend
-  
-  Ideal for rapid prototyping in hackathons
+  Handle API errors
 
-🔄 State Management using Riverpod
+### 📌 3. Upload Provider
 
-The app uses Riverpod for clean, scalable state management.
+Manages file uploads and related state.
 
-📌 Provider Structure
-1. Chat Provider
-
-  Handles AI interaction and message flow.
-  
-  final chatProvider = StateNotifierProvider<ChatNotifier, List<Message>>((ref) {
-    return ChatNotifier();
-  });
-  
-  Responsibilities:
-  
-  Store chat messages
-  
-  Send user query to backend (/ask)
-  
-  Receive and update AI response
-
-2. API Service Provider
-
-  Handles backend communication.
-  
-  final apiServiceProvider = Provider<ApiService>((ref) {
-    return ApiService();
-  });
-  
-  Responsibilities:
-  
-  Send POST request to FastAPI
-  
-  Handle JSON responses
-  
-  Error handling
-
-3. Upload Provider
-
-  Handles file uploads.
-  
-  final uploadProvider = StateNotifierProvider<UploadNotifier, UploadState>((ref) {
-    return UploadNotifier();
-  });
-  
-  Responsibilities:
-  
-  Manage file selection
-  
-  Send multipart request to /upload-material
-  
-  Track upload status
-
-🔁 Riverpod Flow (Data Flow)
-
-          UI (User Input)
-             ↓
-          Chat Provider (StateNotifier)
-             ↓
-          API Service Provider
-             ↓
-          FastAPI Backend
-             ↓
-          Ollama (Phi-3 Model)
-             ↓
-          Response Returned
-             ↓
-          Provider Updates State
-             ↓
-          UI Rebuilds Automatically
-
-🧠 AI Integration Flow
-
-  User enters a question in Flutter UI
-  
-  Request is sent to FastAPI /ask endpoint
-  
-  Backend calls:
-  
-  ollama.chat(model="phi3:mini", ...)
-  
-  
-  AI generates response locally (offline)
-  
-  Response is returned to Flutter
-  
-  UI updates using Riverpod
-
-📂 File Upload Flow
-
-  Teacher uploads material via Flutter UI
-  
-  Data sent as multipart/form-data
-  
-  FastAPI stores file in /uploads directory
-  
-  Metadata is returned and stored
-
-🔥 Key Features
-
-    ✅ Offline AI Chat (No Internet Required)
-    
-    ✅ Cross-platform UI (Flutter Web + Mobile)
-    
-    ✅ Real-time state updates (Riverpod)
-    
-    ✅ File upload & content management
-    
-    ✅ Lightweight and scalable
-
-🚧 Future Enhancements
-
-🔍 Semantic Search using FAISS
-
-🌐 Hybrid mode (Offline + Online sync)
-
-🗣️ Voice-based learning assistant
-
-📊 Student progress tracking
-
-📚 Personalized learning paths
-
-🏆 Why This Project Stands Out
-
-  Solves a real-world problem (digital divide)
-  
-  Works offline (rare in AI apps)
-  
-  Combines AI + EdTech + Accessibility
-  
-  Scalable for government and NGOs
-
-📸 Demo
-
-    https://drive.google.com/file/d/12IhiPGROt4bX-DlSIdd1l5WE2CpzSRHb/view?usp=sharing
+final uploadProvider = StateNotifierProvider<UploadNotifier, UploadState>((ref) {
+  return UploadNotifier();
+});
 
 
-⭐ Conclusion
+#### Responsibilities:
 
-  Sikshya Setu demonstrates how AI can be made accessible beyond urban infrastructure, ensuring that quality education reaches every student regardless of connectivity.
+Handle file selection
+
+Upload materials via multipart requests
+
+Track upload status and response
+
+## 🔁 Riverpod Data Flow
+        User Interface (Input)
+                ↓
+        Chat Provider (StateNotifier)
+                ↓
+        API Service Provider
+                ↓
+        FastAPI Backend
+                ↓
+        Ollama (Phi-3 Model)
+                ↓
+        Response Generated
+                ↓
+        State Updated
+                ↓
+        UI Rebuilds Automatically
+
+## 🧠 AI Integration Flow
+
+User enters a query in the Flutter interface
+
+Request is sent to the FastAPI /ask endpoint
+
+Backend processes the request using:
+
+ollama.chat(model="phi3:mini", ...)
+
+
+AI generates response locally (offline)
+
+Response is returned to the frontend
+
+UI updates dynamically via Riverpod
+
+## 📂 File Upload Flow
+
+Teacher uploads study material via Flutter UI
+
+Data is sent as multipart/form-data
+
+FastAPI stores the file in /uploads directory
+
+Metadata is returned and managed in the app
+
+## 🔥 Key Features
+
+      ✅ Fully Offline AI Chat
+      
+      ✅ Cross-platform (Web + Mobile)
+      
+      ✅ Real-time UI updates using Riverpod
+      
+      ✅ Study material upload and management
+      
+      ✅ Lightweight and scalable architecture
