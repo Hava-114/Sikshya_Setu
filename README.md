@@ -1,23 +1,23 @@
 Sikshya Setu – Offline AI-Powered Learning Platform
 📌 Overview
 
-Sikshya Setu is an offline-first AI-powered education platform designed to bridge the digital divide in remote and low-connectivity regions. Unlike conventional ed-tech applications that rely heavily on cloud infrastructure, Sikshya Setu ensures uninterrupted learning by operating efficiently without continuous internet access.
+  Sikshya Setu is an offline-first AI-powered education platform designed to bridge the digital divide in remote and low-connectivity regions. Unlike conventional ed-tech applications that rely heavily on cloud infrastructure, Sikshya Setu ensures uninterrupted learning by operating efficiently without continuous internet access.
 
 The platform acts as a 24/7 academic assistant, enabling students to:
 
-Ask doubts and receive AI-generated explanations
+  Ask doubts and receive AI-generated explanations
 
-Access learning materials offline
+  Access learning materials offline
 
-Continue education in low or zero network environments
+  Continue education in low or zero network environments
 
 ❗ Problem Statement
 
-Students in rural and underserved areas often face:
+  Students in rural and underserved areas often face:
 
-Lack of stable internet connectivity
+      Lack of stable internet connectivity
 
-Limited access to quality teachers
+      Limited access to quality teachers
 
 Inability to use modern AI learning platforms
 
